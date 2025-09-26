@@ -24,7 +24,7 @@ const Navbar = () => {
                             <NavItems {...link} />
                         </li>
                     ))}
-                    <Button className="button button-secondary flex items-center gap-1 text-sm hover:button-primary duration-150 transition-colors">
+                    <Button className="button button-secondary flex items-center gap-1 text-sm hover:button-primary hover:button duration-150 transition-colors">
                         <Crown />
                         Upgrade
                     </Button>
