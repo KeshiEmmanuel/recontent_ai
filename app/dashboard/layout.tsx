@@ -22,7 +22,9 @@ export default function DashboardLayout({
         <html lang="en">
             <body className={`${ManropeSan.variable} antialiased`}>
                 <Navbar />
-                {children}
+                <div className="max-w-[850px] mx-auto font-sans">
+                    {children}
+                </div>
             </body>
         </html>
     );

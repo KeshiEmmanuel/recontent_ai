@@ -9,7 +9,7 @@ const InputArea = () => {
                 className="h-[120px]"
                 placeholder="Paste your blog post content here...or enter the URL"
             />
-            <div className="mt-2">
+            <div className="mt-4">
                 <Button className="button button-primary">
                     Repurpose content
                 </Button>

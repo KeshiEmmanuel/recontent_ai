@@ -6,7 +6,6 @@
     text-rendering: optimizeLegibility;
 }
 @custom-variant dark (&:is(.dark *));
-
 @theme inline {
     --color-background: var(--background);
     --color-foreground: var(--foreground);
@@ -140,7 +139,6 @@
     cursor: pointer;
     border-radius: 10px;
     position: relative;
-    display: block;
     isolation: isolate;
     overflow: hidden;
     transition: box-shadow 0.45s cubic-bezier(0.6, 0.6, 0, 1);
@@ -165,7 +163,7 @@
 .header-inner {
     position: relative;
     display: flex;
-    width: 648px;
+    width: 850px;
     padding: 12px;
     border-radius: 16px;
     align-items: center;
