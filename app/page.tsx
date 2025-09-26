@@ -1,7 +1,8 @@
+import LandingPage from "@/components/landingpage/LandingPage";
 import React from "react";
 
-const Home = () => {
-    return <main className="max-w-[1200px] mx-auto font-sans pt-30"></main>;
+const Home = async () => {
+    return <LandingPage />;
 };
 
 export default Home;

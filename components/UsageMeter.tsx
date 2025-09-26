@@ -14,7 +14,7 @@ const UsageBar = ({
 }) => {
     return (
         <div
-            className={`bg-gradient-to-r from-[#2f01971f] backdrop-blur-3xl  to-[#7231ff52] border border-purple-200 rounded-lg p-3 ${spaceHoriziontal}`}
+            className={`bg-gradient-to-r from-purple-100 backdrop-blur-3xl  to-[#7231ff52] border border-purple-200 rounded-lg p-3 ${spaceHoriziontal}`}
         >
             <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-4">
