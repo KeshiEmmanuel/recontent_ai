@@ -1,6 +1,6 @@
+import Navbar from "@/components/Navbar";
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
-import "./globals.css";
 
 const ManropeSan = Manrope({
     variable: "--font-sans",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
         "Transform blog posts into Twitter threads, LinkedIn posts, Instagram captions & more in 30 seconds. AI-powered content repurposing tool. Try 3 free repurposes - no signup required.",
 };
 
-export default function RootLayout({
+export default function DashboardLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
@@ -21,6 +21,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={`${ManropeSan.variable} antialiased`}>
+                <Navbar />
                 {children}
             </body>
         </html>
