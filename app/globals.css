@@ -186,3 +186,8 @@
     background: linear-gradient(180deg, #ffffff1a, #fff0), #7e43ff;
     box-shadow: 0 1px 2px #25114f66, 0 0 0 1px #4801e4c2;
 }
+
+.hero_title {
+    font-size: 3.5rem;
+    line-height: 1;
+}

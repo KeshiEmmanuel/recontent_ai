@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 44.73 52.91">
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 30.08 30.74">
   <defs>
     <style>
       .cls-1 {
-        fill: #231f20;
-        stroke: #231f20;
-        stroke-miterlimit: 10;
+        fill: #fff;
       }
 
       .cls-2 {
         fill: url(#linear-gradient);
       }
     </style>
-    <linearGradient id="linear-gradient" x1="44.23" y1="43.19" x2="22.68" y2="43.19" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#231f20"/>
-      <stop offset=".04" stop-color="#231d21"/>
-      <stop offset=".34" stop-color="#251127"/>
-      <stop offset=".67" stop-color="#260e29"/>
-      <stop offset=".89" stop-color="#541853"/>
+    <linearGradient id="linear-gradient" x1="22.63" y1="18.25" x2="-5.04" y2="7.77" gradientUnits="userSpaceOnUse">
+      <stop offset=".16" stop-color="#250e29"/>
+      <stop offset=".34" stop-color="#240e29"/>
+      <stop offset=".7" stop-color="#260e29"/>
+      <stop offset="1" stop-color="#541853"/>
       <stop offset="1" stop-color="#592368"/>
     </linearGradient>
   </defs>
   <g id="Layer_1-2" data-name="Layer 1">
     <g>
-      <path class="cls-1" d="m19.7.5v51.91H.5V.5h19.2Z"/>
-      <rect class="cls-2" x="22.68" y="33.51" width="21.56" height="19.36"/>
-      <path class="cls-1" d="m44.23,23.84v6.38h-21.56v-6.38c.97-.84,4.84-4,10.7-4.03,5.96-.03,9.9,3.2,10.86,4.03Z"/>
+      <path class="cls-2" d="m30.08,3.46v23.83c0,1.91-1.36,3.46-3.04,3.46H3.04c-1.68,0-3.04-1.55-3.04-3.46V3.46C0,1.55,1.36,0,3.04,0h24.01c1.68,0,3.04,1.55,3.04,3.46Z"/>
+      <path class="cls-1" d="m14.49,5.93v16.47h-6.09V5.93h6.09Z"/>
+      <path class="cls-1" d="m22.15,12.82v2.02h-6.84v-2.02c.31-.27,1.53-1.27,3.39-1.28,1.89,0,3.14,1.01,3.44,1.28Z"/>
+      <rect class="cls-1" x="15.32" y="16.01" width="7.11" height="6.38"/>
     </g>
   </g>
 </svg>

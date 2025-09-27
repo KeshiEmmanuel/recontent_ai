@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import SubscriptionSetting from "@/components/SubscriptionSetting";
 const ProfilePage = async () => {
     const supabase = await createClient();
     const {
@@ -21,11 +22,12 @@ const ProfilePage = async () => {
                         <h1 className="text-lg font-bold">
                             {user?.user_metadata.full_name}
                         </h1>
-                        <p className="text-sm"> {user?.email}</p>
+                        <p className="text-sm">{user?.email}</p>
                     </div>
                 </div>
                 <Button className="button button-primary">Sign out</Button>
             </div>
+            <SubscriptionSetting />
         </main>
     );
 };

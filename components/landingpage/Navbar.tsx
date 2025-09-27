@@ -13,9 +13,9 @@ const links = [
 const Navbar = () => {
     return (
         <nav className="fixed w-full top-4">
-            <div className="relative navbar shadow max-w-[675px] mx-auto flex items-center justify-between">
+            <div className="relative border border-white navbar shadow max-w-[675px] mx-auto flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <Image src="/logo.svg" width={20} height={20} alt="logo" />
+                    <Image src="/logo.svg" width={25} height={25} alt="logo" />
                     <p className="text-sm font-bold">Recontent</p>
                 </div>
                 <ul className="flex items-center gap-2">
