@@ -4,7 +4,6 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import UsageBar from "@/components/UsageMeter";
 import React from "react";
-
 const Home = async () => {
     const supabase = await createClient();
     const {
@@ -16,7 +15,7 @@ const Home = async () => {
         redirect("/login");
     }
     return (
-        <main className="max-w-[850px] mx-auto font-sans pt-30">
+        <main className="max-w-[1000px] mx-auto font-sans pt-30">
             <div className="mb-12">
                 <h1 className=" text-3xl font-bold">
                     Welcome back,

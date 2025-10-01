@@ -4,11 +4,19 @@ import { Button } from "./ui/button";
 import { Textarea } from "./ui/textarea";
 import LoadingModal from "./GeneratingModal";
 import { useRef } from "react";
-import { createPost } from "@/utils/actions/post.actions";
+import {
+    createPost,
+    updateRelatedPostContent,
+} from "@/utils/actions/post.actions";
+import { useContentRepurpose } from "@/hooks/useRepurposer";
+import { ContentRepurposeResponseSchema } from "@/lib/schema";
+import { useRouter } from "next/navigation";
 
 const InputArea = () => {
     const loading = useLoadingStore((state) => state.load.loading);
     const PostRef = useRef<HTMLTextAreaElement>(null);
+    const router = useRouter();
+    const { repurposeContent, isLoading, error } = useContentRepurpose();
     const setLoading = useLoadingStore((state) => state.setLoading);
 
     async function handleCreatePost() {
@@ -19,6 +27,19 @@ const InputArea = () => {
             try {
                 const data = await createPost(value);
                 console.log(data);
+                if (data) {
+                    const answer = await repurposeContent(data.post);
+                    if (answer) {
+                        const finalResult = await updateRelatedPostContent(
+                            data.id,
+                            answer
+                        );
+                        return router.push(
+                            `/dashboard/content/${finalResult.post_id}`
+                        );
+                    }
+                }
+                // console.log(answer);
             } catch (err) {
                 console.log(err);
             } finally {
