@@ -25,10 +25,10 @@ const Home = async () => {
                 </h1>
                 <p className="text-sm">Ready to repurpose some content?</p>
             </div>
-            <UsageBar
+            {/* <UsageBar
                 spaceHoriziontal="my-4"
                 userData={{ maxUsage: 5, usageCount: 2 }}
-            />
+            /> */}
             <InputArea />
         </main>
     );

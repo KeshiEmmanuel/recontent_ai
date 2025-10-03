@@ -68,7 +68,22 @@ export const getPostContent = async (id: string) => {
         .eq("id", id);
 
     if (error || !data)
-        throw new Error(error?.message || "Failed to create a companion");
+        throw new Error(error?.message || "Failed to fetch Content");
 
     return data[0];
+};
+
+export const getAllContentGenerated = async () => {
+    const supabase = await createClient();
+    const {
+        data: { user },
+    } = await supabase.auth.getUser();
+    const { data, error } = await supabase
+        .from("blog_posts")
+        .select()
+        .eq("user_id", user?.id);
+    if (error || !data)
+        throw new Error(error?.message || "Failed to fetch Content");
+
+    return data;
 };

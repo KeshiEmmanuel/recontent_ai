@@ -70,51 +70,45 @@ BLOG POST CONTENT:
 
 Generate the Twitter thread now:`,
 
-    linkedin: `You are a professional LinkedIn content strategist. Transform the following blog post into a high-engagement LinkedIn post with structured components.
+    linkedin: `You are a professional LinkedIn content strategist. Transform the following blog post into a high-engagement LinkedIn post that builds authority and drives meaningful business conversations.
 
-IMPORTANT: Generate a JSON response with these exact fields:
-1. content: The main LinkedIn post body (1,300-1,500 characters)
-2. keyInsights: Array of 2-5 key takeaways as separate bullet points
-3. hashtags: Array of 3-5 relevant hashtags (without # symbol)
-4. callToAction: A single engaging question or statement to encourage comments
-
-CONTENT FIELD REQUIREMENTS:
-- 1,300-1,500 characters
+REQUIREMENTS:
+- 1,300-1,500 characters optimal (LinkedIn's sweet spot)
 - Professional yet conversational tone
-- Start with attention-grabbing hook
-- Include context and main insights naturally
-- DO NOT include hashtags or call-to-action in this field
-- Use short paragraphs for mobile reading
-
-KEY INSIGHTS FIELD:
-- Extract 2-5 actionable insights from the blog
-- Each insight should be one clear sentence
-- Focus on practical takeaways
-- These will be displayed as bullet points separately
-
-HASHTAGS FIELD:
-- Provide 3-5 relevant professional hashtags
-- Just the word, no # symbol (e.g., "Leadership" not "#Leadership")
-- Mix of broad and niche tags
-- Industry-relevant terms
-
-CALL TO ACTION FIELD:
-- Single question or statement to boost engagement
-- Ask about their experience or opinion
-- Keep it conversational and inviting
-- Example: "What strategies have worked best for your team?"
+- Start with attention-grabbing first line
+- Use bullet points or numbered lists for key insights
+- Include relevant business/industry context
+- End with a question to encourage comments
+- Add 3-5 relevant hashtags at the end
+- Structure for easy mobile reading (short paragraphs)
 
 STYLE:
-- Thought leadership tone
+- Thought leadership tone - position as expert insight
 - Share lessons learned or data-driven insights
-- Include personal perspective
+- Include personal perspective or experience
 - Avoid overly promotional language
 - Focus on value to reader's career/business
+
+STRUCTURE:
+Opening Hook: [Compelling statement or question]
+
+Context: [Why this matters now]
+
+Key Insights:
+→ Point 1: [Actionable insight]
+→ Point 2: [Supporting data or example]
+→ Point 3: [Future implication]
+
+Conclusion: [Main takeaway]
+
+Engagement Question: [Ask about their experience]
+
+#hashtag1 #hashtag2 #hashtag3
 
 BLOG POST CONTENT:
 {blog_content}
 
-Generate the structured LinkedIn post components now.`,
+Generate the LinkedIn post now:`,
     instagram: `You are a creative Instagram content creator. Transform the following blog post into an engaging Instagram caption that tells a story and builds community.
 
 REQUIREMENTS:
@@ -240,3 +234,35 @@ BLOG POST CONTENT:
 Extract 3 shareable quotes now:
 `,
 };
+
+export const PricingPlan = [
+    {
+        id: 1,
+        title: "Free plan",
+        pricingMonthly: "0",
+        isPopular: false,
+        caption: "Perfect for casual cooks and first-time users.",
+        features: [
+            "5 credits per month",
+            "All 6 platforms output",
+            "Full structured data",
+        ],
+        highlighted: false,
+    },
+    {
+        id: 2,
+        title: "Pro plan",
+        pricingMonthly: "5.99",
+        isPopular: true,
+        caption: "For food lovers who want the full experience.",
+        features: [
+            "up to 60 snapshots per month (3 recipes generated)",
+            "Unlimited manual pantry entries (3 recipes generated)",
+            "Smart shopping list + cheapest alternatives",
+            "Personalized meal suggestions",
+            "Share between family and friends",
+            "Early access to new features",
+        ],
+        highlighted: true,
+    },
+];

@@ -4,6 +4,7 @@ import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import SubscriptionSetting from "@/components/SubscriptionSetting";
+import SignOutButton from "@/components/SignOutButton";
 const ProfilePage = async () => {
     const supabase = await createClient();
     const {
@@ -25,7 +26,7 @@ const ProfilePage = async () => {
                         <p className="text-sm">{user?.email}</p>
                     </div>
                 </div>
-                <Button className="button button-primary">Sign out</Button>
+                <SignOutButton>Sign out</SignOutButton>
             </div>
             <SubscriptionSetting />
         </main>

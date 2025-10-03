@@ -28,7 +28,7 @@ export const generatePlatformContent = async (
         console.log(`📋 Using structured schema for ${platform}`);
 
         const result = await generateObject({
-            model: google("gemini-2.5-flash-lite"),
+            model: google("gemini-2.0-flash"),
             prompt: prompt,
             schema: schema,
             temperature: getTemperatureForPlatform(platform),

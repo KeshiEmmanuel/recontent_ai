@@ -12,7 +12,7 @@ const links = [
 
 const Navbar = () => {
     return (
-        <nav className="fixed w-full top-4">
+        <nav className="fixed z-[100] w-full top-4">
             <div className="relative border border-white navbar shadow max-w-[675px] mx-auto flex items-center justify-between">
                 <div className="flex items-center gap-2">
                     <Image src="/logo.svg" width={25} height={25} alt="logo" />
@@ -25,7 +25,7 @@ const Navbar = () => {
                         </li>
                     ))}
                 </ul>
-                <Button className="button button-primary">
+                <Button className="button button-component">
                     <Link href="/login">Get started</Link>
                 </Button>
             </div>
