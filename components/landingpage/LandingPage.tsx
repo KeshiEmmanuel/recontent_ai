@@ -6,6 +6,7 @@ import Metrics from "./Metrics";
 import Steps from "./Steps";
 import Features from "./Features";
 import Pricing from "./Pricing";
+import Footer from "./Footer";
 
 const LandingPage = () => {
     return (
@@ -18,6 +19,7 @@ const LandingPage = () => {
                 <Steps />
                 <Features />
                 <Pricing />
+                <Footer />
             </section>
         </main>
     );

@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import React, { useState } from "react";
 
 const ImageLayer = () => {
@@ -9,7 +10,13 @@ const ImageLayer = () => {
     return (
         <div className="mb-10 max-w-[800px] mx-auto">
             {isLoading && (
-                <div className="w-full h-[644px] rounded-lg animate-pulse bg-gray-100" />
+                <Image
+                    src="/dashboard.png"
+                    width={800}
+                    className="rounded-lg shadow border border-gray-100"
+                    height={800}
+                    alt="dashboard"
+                />
             )}
             <video
                 className={`rounded-xl ${isLoading ? "hidden" : ""}`}

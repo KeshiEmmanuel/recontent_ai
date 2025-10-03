@@ -238,10 +238,10 @@ Extract 3 shareable quotes now:
 export const PricingPlan = [
     {
         id: 1,
-        title: "Free plan",
+        title: "Free",
         pricingMonthly: "0",
         isPopular: false,
-        caption: "Perfect for casual cooks and first-time users.",
+        caption: "Perfect for testing or light usage",
         features: [
             "5 credits per month",
             "All 6 platforms output",
@@ -252,14 +252,14 @@ export const PricingPlan = [
     },
     {
         id: 2,
-        title: "Pro plan",
-        pricingMonthly: "29.99",
+        title: "Pro",
+        pricingMonthly: "29",
         isPopular: true,
-        caption: "For food lovers who want the full experience.",
+        caption: "Everything you need to scale",
         features: [
             "unlimited credits per month",
             "All 6 platforms output",
-            "Craft Your Own template",
+            "Craft Your own template",
             "Access to early features",
             "Cancel anytime",
         ],
