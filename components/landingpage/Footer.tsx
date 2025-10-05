@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const Footer = () => {
     return (
@@ -8,13 +9,13 @@ const Footer = () => {
                 <h1 className="text-center font-bold text-6xl">
                     Ready to Save 10 Hours This Week?
                 </h1>
-                <p className="text-center py-4 text-purple-800">
+                <p className="text-center py-4 text-foreground">
                     Join 1,000+ content creators who never run out of social
                     media posts. Start your free trial today.
                 </p>
-                <div className="flex justify-center mt-5 py-2">
+                <div className="flex justify-center mt-2 py-2">
                     <Button className="button button-component w-full">
-                        Get Started
+                        <Link href="/login">Get Started</Link>
                     </Button>
                 </div>
                 <p className="text-sm text-center text-gray-600">

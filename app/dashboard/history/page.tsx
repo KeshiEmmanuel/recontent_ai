@@ -8,8 +8,6 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import HistoryCard from "@/components/HistoryCard";
 
 import {
-    deleteBlogPost,
-    deletePostContent,
     getAllContentGenerated,
     handleDelete,
 } from "@/utils/actions/post.actions";
