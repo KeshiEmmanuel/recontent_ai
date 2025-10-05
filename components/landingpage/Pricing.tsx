@@ -11,16 +11,16 @@ const Pricing = () => {
                 Pricing
             </p>
             <h1 className="text-center text-5xl font-bold py-4 ">
-                Simple, Transparent Pricing Free
+                Simple, Transparent Pricing Fee
             </h1>
-            <div className="py-12 max-w-[1200px] mx-auto flex gap-6">
-                <div className="flex p-6 rounded-lg bg-gray-100 w-[850px] gap-5 flex-col">
+            <div className="py-12 max-w-[1200px] mx-auto flex gap-6 flex-col lg:flex-row">
+                <div className="flex p-6 rounded-lg bg-gray-100 lg:w-[850px] gap-5 flex-col">
                     {PricingPlan.map((pricing) => (
                         <PricingCard {...pricing} key={pricing.id} />
                     ))}
                 </div>
-                <div className="flex flex-col bg-purple-600 rounded-lg shadow w-[350px]">
-                    <div className="pt-40 px-10 w-full">
+                <div className="flex mx-8 lg:mx-0 flex-col bg-purple-600 rounded-lg shadow lg:w-[350px]">
+                    <div className="pt-20 py-10 lg:pt-40 px-10 w-full">
                         <BiPhoneCall className="my-2 text-white text-2xl" />
                         <h1 className="text-4xl font-bold text-white">
                             Contact Us

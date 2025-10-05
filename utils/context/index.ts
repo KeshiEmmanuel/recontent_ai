@@ -259,6 +259,7 @@ export const PricingPlan = [
         features: [
             "unlimited credits per month",
             "All 6 platforms output",
+            "Platform Preview Mode",
             "Craft Your own template",
             "Access to early features",
             "Cancel anytime",

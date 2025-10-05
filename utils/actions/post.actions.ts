@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { createClient } from "../supabase/server";
 
 export const createPost = async (post_text: string) => {
@@ -86,4 +87,32 @@ export const getAllContentGenerated = async () => {
         throw new Error(error?.message || "Failed to fetch Content");
 
     return data;
+};
+
+export const deletePostContent = async (id: string) => {
+    const supabase = await createClient();
+    const { error } = await supabase
+        .from("repurposed_contents")
+        .delete()
+        .eq("post_id", id);
+    if (error) throw new Error(error?.message || "Failed to delete post");
+};
+export const deleteBlogPost = async (id: string) => {
+    const supabase = await createClient();
+    const { error } = await supabase.from("blog_posts").delete().eq("id", id);
+    if (error) throw new Error(error?.message || "Failed to delete post");
+};
+
+export const handleDelete = async (id: string) => {
+    try {
+        const data = await deletePostContent(id);
+        const response = await deleteBlogPost(id);
+        console.log(data);
+        console.log(response);
+        revalidatePath("/dashboard/history");
+        return { success: true };
+    } catch (err) {
+        console.log(err);
+        return { success: false, error: "Failed to delete post" };
+    }
 };

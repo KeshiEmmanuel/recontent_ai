@@ -12,7 +12,7 @@ interface MainProps extends Props {
 const FeaturesCard = ({ icon, title, description, index }: MainProps) => {
     return (
         <div
-            className={`feature-${
+            className={`p-4 feature feature-${
                 index + 1
             } bg-gray-200/20 backdrop-blur-lg rounded-xl border border-purple-50 py-2`}
         >

@@ -25,7 +25,7 @@ const Navbar = () => {
                         </li>
                     ))}
                 </ul>
-                <Button className="button button-component">
+                <Button className="button button-primary">
                     <Link href="/login">Get started</Link>
                 </Button>
             </div>
