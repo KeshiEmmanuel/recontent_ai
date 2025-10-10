@@ -1,5 +1,4 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import { createClient } from "@/utils/supabase/server";
 import SubscriptionSetting from "@/components/SubscriptionSetting";
 import SignOutButton from "@/components/SignOutButton";
