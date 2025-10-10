@@ -5,10 +5,10 @@ import { ContentRepurposeResponseSchema } from "@/lib/schema";
 
 export async function POST(request: NextRequest) {
     try {
-        console.log("🚀 Structured API route called");
+        // console.log("🚀 Structured API route called");
 
         const { content } = await request.json();
-        console.log("📝 Received content length:", content?.length);
+        // console.log("📝 Received content length:", content?.length);
 
         if (!content || content.length < 100) {
             return NextResponse.json(
@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        console.log("✅ Content validation passed");
+        // console.log("✅ Content validation passed");
 
         const platforms = [
             "facebook",
@@ -44,16 +44,16 @@ export async function POST(request: NextRequest) {
 
         results.forEach((result, index) => {
             const platform = platforms[index];
-            console.log(
-                `📋 Processing structured ${platform} result:`,
-                result.status
-            );
+            // console.log(
+            //     `📋 Processing structured ${platform} result:`,
+            //     result.status
+            // );
 
             if (result.status === "fulfilled" && result.value) {
                 finalResults[platform] = result.value;
-                console.log(`✅ ${platform} structured content complete`);
+                // console.log(`✅ ${platform} structured content complete`);
             } else {
-                console.error(`❌ ${platform} failed:`, result.reason);
+                // console.error(`❌ ${platform} failed:`, result.reason);
                 errors[platform] = result.reason?.message || "Unknown error";
                 finalResults[platform] = getStructuredFallbackContent(
                     platform,
@@ -72,10 +72,10 @@ export async function POST(request: NextRequest) {
         const validatedResponse =
             ContentRepurposeResponseSchema.parse(responseData);
 
-        console.log("📤 Sending validated structured response");
+        // console.log("📤 Sending validated structured response");
         return NextResponse.json(validatedResponse);
     } catch (error: any) {
-        console.error("💥 Structured API Error:", error);
+        // console.error("💥 Structured API Error:", error);
         return NextResponse.json(
             {
                 success: false,

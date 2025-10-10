@@ -13,8 +13,8 @@ export const generatePlatformContent = async (
     blogContent: string,
     platform: Platform
 ): Promise<any> => {
-    console.log(`🎯 Generating structured ${platform} content...`);
-    console.log(`📝 Input content length: ${blogContent.length}`);
+    // console.log(`🎯 Generating structured ${platform} content...`);
+    // console.log(`📝 Input content length: ${blogContent.length}`);
 
     try {
         const promptTemplate = PROMPTS[platform];
@@ -25,7 +25,7 @@ export const generatePlatformContent = async (
         const prompt = promptTemplate.replace("{blog_content}", blogContent);
         const schema = PlatformSchemas[platform];
 
-        console.log(`📋 Using structured schema for ${platform}`);
+        // console.log(`📋 Using structured schema for ${platform}`);
 
         const result = await generateObject({
             model: google("gemini-2.0-flash"),
@@ -34,27 +34,27 @@ export const generatePlatformContent = async (
             temperature: getTemperatureForPlatform(platform),
             maxOutputTokens: getMaxTokensForPlatform(platform),
         });
-        console.log(result.object);
-        console.log(`🤖 Structured response for ${platform}:`, {
-            hasObject: !!result.object,
-            keys: result.object ? Object.keys(result.object) : [],
-        });
+        // console.log(result.object);
+        // console.log(`🤖 Structured response for ${platform}:`, {
+        //     hasObject: !!result.object,
+        //     keys: result.object ? Object.keys(result.object) : [],
+        // });
 
         if (!result.object) {
-            console.error(`⚠️ Empty structured response for ${platform}`);
+            // console.error(`⚠️ Empty structured response for ${platform}`);
             return getStructuredFallbackContent(platform, blogContent);
         }
 
         // Validate the response matches our schema
         const validatedContent = schema.parse(result.object);
-        console.log(`✅ ${platform} validation successful`);
+        // console.log(`✅ ${platform} validation successful`);
 
         return validatedContent;
     } catch (error: any) {
-        console.error(
-            `💥 Error generating structured ${platform} content:`,
-            error.message
-        );
+        // console.error(
+        //     `💥 Error generating structured ${platform} content:`,
+        //     error.message
+        // );
 
         // Return structured fallback
         return getStructuredFallbackContent(platform, blogContent);

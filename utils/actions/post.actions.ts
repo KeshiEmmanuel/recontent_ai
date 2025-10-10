@@ -105,14 +105,12 @@ export const deleteBlogPost = async (id: string) => {
 
 export const handleDelete = async (id: string) => {
     try {
-        const data = await deletePostContent(id);
-        const response = await deleteBlogPost(id);
-        console.log(data);
-        console.log(response);
+        await deletePostContent(id);
+        await deleteBlogPost(id);
+
         revalidatePath("/dashboard/history");
         return { success: true };
     } catch (err) {
-        console.log(err);
         return { success: false, error: "Failed to delete post" };
     }
 };

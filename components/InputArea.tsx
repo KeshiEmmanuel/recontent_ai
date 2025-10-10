@@ -21,12 +21,12 @@ const InputArea = () => {
 
     async function handleCreatePost() {
         if (PostRef.current) {
-            console.log(PostRef.current.value);
+            // console.log(PostRef.current.value);
             const value = PostRef.current.value;
             setLoading(true);
             try {
                 const data = await createPost(value);
-                console.log(data);
+                // console.log(data);
                 if (data) {
                     const answer = await repurposeContent(data.post);
                     if (answer) {

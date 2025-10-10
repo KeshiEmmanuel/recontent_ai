@@ -24,7 +24,7 @@ export const useContentRepurpose = () => {
             }
 
             const data = await response.json();
-            console.log(data);
+            // console.log(data);
             if (data.success) {
                 // console.log(results);
                 return data.data; // Add this return statement
@@ -33,7 +33,7 @@ export const useContentRepurpose = () => {
             }
         } catch (err) {
             setError(err.message);
-            console.error("Content repurposing error:", err);
+            // console.error("Content repurposing error:", err);
             throw err; // Re-throw to handle in the component
         } finally {
             setIsLoading(false);
