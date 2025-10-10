@@ -1,5 +1,4 @@
 import ContentDetailsPage from "@/components/ContentDetails";
-import { Textarea } from "@/components/ui/textarea";
 import {
     getPostContent,
     getRepurposedContent,

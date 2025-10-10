@@ -42,17 +42,18 @@ export async function POST(request: NextRequest) {
         const finalResults: Record<string, any> = {};
         const errors: Record<string, string> = {};
 
-        results.forEach((result: any, index) => {
+        results.forEach((result, index) => {
             const platform = platforms[index];
             // console.log(
             //     `📋 Processing structured ${platform} result:`,
             //     result.status
             // );
 
-            if (result.status === "fulfilled" && result.value) {
+            if (result.status === "fulfilled") {
                 finalResults[platform] = result.value;
                 // console.log(`✅ ${platform} structured content complete`);
             } else {
+                // result.status === "rejected"
                 // console.error(`❌ ${platform} failed:`, result.reason);
                 errors[platform] = result.reason?.message || "Unknown error";
                 finalResults[platform] = getStructuredFallbackContent(

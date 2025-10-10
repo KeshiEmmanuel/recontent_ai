@@ -3,8 +3,6 @@ import { CiSearch } from "react-icons/ci";
 import { Input } from "@/components/ui/input";
 import React from "react";
 import Link from "next/link";
-import { HiDotsHorizontal } from "react-icons/hi";
-
 import HistoryCard from "@/components/HistoryCard";
 
 import {
@@ -15,7 +13,7 @@ import DeleteMenu from "@/components/DeleteMenu";
 
 const HistoryPage = async () => {
     const data = await getAllContentGenerated();
-   
+
     return (
         <main className="mt-24">
             <div className="flex items-center justify-between font-semibold">

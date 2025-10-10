@@ -93,7 +93,7 @@ const LoadingModal = ({
             clearTimeout(stepTimer);
             clearInterval(tipTimer);
         };
-    }, [currentStep, isOpen]);
+    }, [currentStep, isOpen, tips.length, steps]);
 
     if (!isOpen) return null;
 

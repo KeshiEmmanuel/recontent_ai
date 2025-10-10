@@ -1,5 +1,5 @@
 import React from "react";
-import { IoCheckmark, IoCheckmarkCircleSharp } from "react-icons/io5";
+import { IoCheckmarkCircleSharp } from "react-icons/io5";
 import { Button } from "../ui/button";
 
 interface Props {
@@ -13,14 +13,14 @@ interface Props {
 }
 
 const PricingCard = ({
-    id,
+    // id,
     title,
     pricingMonthly,
-    isPopular,
-    caption,
+    // isPopular,
+    // caption,
     features,
-    highlighted,
-}: Props) => {
+}: // highlighted,
+Props) => {
     return (
         <article className="w-full">
             <div className="bg-white shadow rounded-lg p-6 lg:p-8">

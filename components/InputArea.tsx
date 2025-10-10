@@ -9,14 +9,13 @@ import {
     updateRelatedPostContent,
 } from "@/utils/actions/post.actions";
 import { useContentRepurpose } from "@/hooks/useRepurposer";
-import { ContentRepurposeResponseSchema } from "@/lib/schema";
 import { useRouter } from "next/navigation";
 
 const InputArea = () => {
     const loading = useLoadingStore((state) => state.load.loading);
     const PostRef = useRef<HTMLTextAreaElement>(null);
     const router = useRouter();
-    const { repurposeContent, isLoading, error } = useContentRepurpose();
+    const { repurposeContent, isLoading } = useContentRepurpose();
     const setLoading = useLoadingStore((state) => state.setLoading);
 
     async function handleCreatePost() {
@@ -66,7 +65,7 @@ const InputArea = () => {
             </div>
             {loading && (
                 <LoadingModal
-                    isOpen={loading}
+                    isOpen={loading || isLoading}
                     onClose={() => setLoading(false)}
                 />
             )}

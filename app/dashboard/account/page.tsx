@@ -1,15 +1,12 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import { createClient } from "@/utils/supabase/server";
-import { redirect } from "next/navigation";
-import { Button } from "@/components/ui/button";
 import SubscriptionSetting from "@/components/SubscriptionSetting";
 import SignOutButton from "@/components/SignOutButton";
 const ProfilePage = async () => {
     const supabase = await createClient();
     const {
         data: { user },
-        error,
     } = await supabase.auth.getUser();
     return (
         <main className="mt-20">
