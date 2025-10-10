@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Copy, Check, ChevronDown, ChevronRight } from "lucide-react";
+
 interface Tweet {
     content: string;
     isFirstTweet: boolean;
@@ -8,15 +9,61 @@ interface Tweet {
     totalThreads: number;
 }
 
-// Twitter threads section
 interface TwitterThreads {
     threadTopic: string;
     totalTweets: number;
     tweets: Tweet[];
 }
-const ContentDetailsPage = ({ contentData }: { contentData: any }) => {
-    const [copiedId, setCopiedId] = useState(null);
-    const [expandedSections, setExpandedSections] = useState({
+
+interface LinkedInContent {
+    content: string;
+    keyInsights: string[];
+    hashtags: string[];
+    callToAction: string;
+}
+
+interface InstagramCaptions {
+    content: string;
+    emojis: string[];
+    hashtags: string[];
+    callToAction: string;
+}
+
+interface FacebookContent {
+    content: string;
+    engagementQuestions: string[];
+    hashtags: string[];
+    callToAction: string;
+}
+
+interface EmailContent {
+    benefitFocused: string;
+    curiosityDriven: string;
+    urgencyScarcity: string;
+    content: string;
+}
+
+interface ContentData {
+    linkedin_content: LinkedInContent;
+    instagram_captions: InstagramCaptions;
+    facebook_content: FacebookContent;
+    twitter_threads: TwitterThreads;
+    quotes: Record<string, string>;
+    email: EmailContent;
+}
+
+type ExpandedSections = {
+    linkedin: boolean;
+    instagram: boolean;
+    facebook: boolean;
+    twitter: boolean;
+    quotes: boolean;
+    email: boolean;
+};
+
+const ContentDetailsPage = ({ contentData }: { contentData: ContentData }) => {
+    const [copiedId, setCopiedId] = useState<string | null>(null);
+    const [expandedSections, setExpandedSections] = useState<ExpandedSections>({
         linkedin: true,
         instagram: false,
         facebook: false,
@@ -25,17 +72,17 @@ const ContentDetailsPage = ({ contentData }: { contentData: any }) => {
         email: false,
     });
 
-    const copyToClipboard = (text: string, id: any) => {
+    const copyToClipboard = (text: string, id: string) => {
         navigator.clipboard.writeText(text);
         setCopiedId(id);
         setTimeout(() => setCopiedId(null), 2000);
     };
 
-    const toggleSection = (section: keyof typeof expandedSections) => {
+    const toggleSection = (section: keyof ExpandedSections) => {
         setExpandedSections((prev) => ({ ...prev, [section]: !prev[section] }));
     };
 
-    const CopyButton = ({ text, id }: { text: string; id: any }) => (
+    const CopyButton = ({ text, id }: { text: string; id: string }) => (
         <button
             onClick={() => copyToClipboard(text, id)}
             className="p-2 hover:bg-gray-100 rounded transition-colors"
@@ -55,8 +102,8 @@ const ContentDetailsPage = ({ contentData }: { contentData: any }) => {
         sectionKey,
     }: {
         title: string;
-        children: any;
-        sectionKey: keyof typeof expandedSections;
+        children: React.ReactNode;
+        sectionKey: keyof ExpandedSections;
     }) => (
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
             <button
@@ -337,10 +384,7 @@ const ContentDetailsPage = ({ contentData }: { contentData: any }) => {
                                             <p className="text-gray-700 italic flex-1 text-sm leading-relaxed">
                                                 {String(quote)}
                                             </p>
-                                            <CopyButton
-                                                text={quote as string}
-                                                id={key}
-                                            />
+                                            <CopyButton text={quote} id={key} />
                                         </div>
                                     </div>
                                 )

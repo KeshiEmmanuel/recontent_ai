@@ -50,10 +50,19 @@ export const getMaxTokensForPlatform = (platform: string) => {
     return maxTokens[platform as MaxTokensPlatform] || 1000;
 };
 
+// Union type of all possible platform content types
+type PlatformContent =
+    | FacebookPost
+    | TwitterThread
+    | LinkedInPost
+    | InstagramCaption
+    | EmailSubjectLines
+    | Quotes;
+
 export const getStructuredFallbackContent = (
     platform: string,
     blogContent: string
-): any => {
+): PlatformContent | null => {
     const title =
         (blogContent && blogContent.split("\n")[0]) ||
         "Content Generation Failed";
@@ -81,11 +90,13 @@ export const getStructuredFallbackContent = (
                 },
                 {
                     content: `1/3 ${snippet}...`,
+                    isFirstTweet: false,
                     threadNumber: 2,
                     totalThreads: 3,
                 },
                 {
                     content: `2/3 What's your experience? Share in the replies! 💭`,
+                    isFirstTweet: false,
                     threadNumber: 3,
                     totalThreads: 3,
                 },

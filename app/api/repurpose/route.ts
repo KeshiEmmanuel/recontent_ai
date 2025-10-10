@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
         );
 
         // Process structured results
-        const finalResults: Record<string, any> = {};
+        const finalResults: Record<string, unknown> = {};
         const errors: Record<string, string> = {};
 
         results.forEach((result, index) => {
@@ -75,12 +75,14 @@ export async function POST(request: NextRequest) {
 
         // console.log("📤 Sending validated structured response");
         return NextResponse.json(validatedResponse);
-    } catch (error: any) {
+    } catch (error) {
         // console.error("💥 Structured API Error:", error);
+        const errorMessage =
+            error instanceof Error ? error.message : "Unknown error occurred";
         return NextResponse.json(
             {
                 success: false,
-                error: "Internal server error: " + error.message,
+                error: "Internal server error: " + errorMessage,
             },
             { status: 500 }
         );

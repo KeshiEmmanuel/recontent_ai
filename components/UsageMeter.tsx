@@ -1,4 +1,3 @@
-import { Zap } from "lucide-react";
 import React from "react";
 import { Button } from "./ui/button";
 import { BiSolidZap } from "react-icons/bi";
@@ -23,7 +22,7 @@ const UsageBar = ({
                 <div className="flex-1 space-y-2">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                            <BiSolidZap  className="text-purple-600"/>
+                            <BiSolidZap className="text-purple-600" />
                             <span className="text-sm font-medium text-gray-700">
                                 {userData.usageCount} / {userData.maxUsage}
                             </span>
