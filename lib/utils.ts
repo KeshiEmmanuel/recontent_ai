@@ -128,7 +128,7 @@ export const getStructuredFallbackContent = (
 
 export function getTimeAgo(supabaseDate: string) {
     const date = new Date(supabaseDate);
-    const now = new Date();
+    const now = new Date();   
     const seconds = Math.floor((now - date) / 1000);
 
     const intervals = [

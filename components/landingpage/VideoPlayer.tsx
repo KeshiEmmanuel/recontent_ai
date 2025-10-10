@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import { motion } from "motion/react";
 import React, { useState } from "react";
 
 const ImageLayer = () => {
@@ -8,7 +9,22 @@ const ImageLayer = () => {
         setIsLoading(false);
     };
     return (
-        <div className="mb-10 max-w-[800px] mx-auto">
+        <motion.div
+            initial={{
+                scale: 0.9,
+                opacity: 0,
+            }}
+            whileInView={{
+                scale: 1,
+                opacity: 1,
+            }}
+            transition={{
+                duration: 0.6,
+                delay: 0.85,
+                ease: "easeInOut",
+            }}
+            className="mb-10 max-w-[800px] mx-auto"
+        >
             {isLoading && (
                 <Image
                     src="/dashboard.png"
@@ -27,7 +43,7 @@ const ImageLayer = () => {
                 onLoadedData={handleLoadedData}
                 loop
             ></video>
-        </div>
+        </motion.div>
     );
 };
 

@@ -1,6 +1,7 @@
 import { Zap } from "lucide-react";
 import React from "react";
 import { Button } from "./ui/button";
+import { BiSolidZap } from "react-icons/bi";
 
 const UsageBar = ({
     spaceHoriziontal,
@@ -14,20 +15,30 @@ const UsageBar = ({
 }) => {
     return (
         <div
-            className={`bg-gradient-to-r from-purple-100 backdrop-blur-3xl  to-[#7231ff52] border border-purple-200 rounded-lg p-3 ${spaceHoriziontal}`}
+            className={`relative overflow-hidden bg-white/80 backdrop-blur-sm border border-gray-200/50 rounded-xl p-4 ${spaceHoriziontal}`}
         >
-            <div className="flex items-center justify-between">
-                <div className="flex items-center space-x-4">
-                    <div className="flex items-center space-x-2">
-                        <Zap className="w-5 h-5 text-purple-600" />
-                        <span className="font-medium text-sm text-gray-900">
-                            {userData.usageCount} of {userData.maxUsage} free
-                            uses remaining
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/5 to-transparent" />
+
+            <div className="relative flex items-center justify-between gap-6">
+                <div className="flex-1 space-y-2">
+                    <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                            <BiSolidZap  className="text-purple-600"/>
+                            <span className="text-sm font-medium text-gray-700">
+                                {userData.usageCount} / {userData.maxUsage}
+                            </span>
+                        </div>
+                        <span className="text-xs text-gray-500">
+                            {Math.round(
+                                (userData.usageCount / userData.maxUsage) * 100
+                            )}
+                            % used
                         </span>
                     </div>
-                    <div className="w-32 bg-gray-200 rounded-full h-2">
+
+                    <div className="w-full bg-gray-100 rounded-full h-1.5 overflow-hidden">
                         <div
-                            className="bg-purple-600 h-2 rounded-full transition-all duration-300"
+                            className="bg-gradient-to-r from-purple-600 to-purple-500 h-full rounded-full transition-all duration-500 ease-out"
                             style={{
                                 width: `${
                                     (userData.usageCount / userData.maxUsage) *
@@ -39,8 +50,8 @@ const UsageBar = ({
                 </div>
 
                 {userData.usageCount >= userData.maxUsage - 1 && (
-                    <Button className="button button-primary">
-                        Upgrade for Unlimited
+                    <Button className="button button-primary whitespace-nowrap text-sm">
+                        Upgrade
                     </Button>
                 )}
             </div>

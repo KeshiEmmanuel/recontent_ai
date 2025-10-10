@@ -5,6 +5,9 @@
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
 }
+html {
+    scroll-behavior: smooth;
+}
 @custom-variant dark (&:is(.dark *));
 @theme inline {
     --color-background: var(--background);

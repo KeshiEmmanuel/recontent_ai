@@ -4,18 +4,15 @@ import React from "react";
 
 interface Props {
     id: string;
-    created_date: string;
+    created_at: string;
     post: string;
 }
 
-const HistoryCard = ({ created_date, post, id }: Props) => {
+const HistoryCard = ({ created_at, post, id }: Props) => {
     return (
-        <Link
-            href={`/dashboard/content/${id}`}
-          
-        >
+        <Link href={`/dashboard/content/${id}`}>
             <h2 className="font-semibold text-lg">{post.slice(0, 70)}....</h2>
-            <p className="text-xs text-gray-400">{getTimeAgo(created_date)}</p>
+            <p className="text-xs text-gray-400">{getTimeAgo(created_at)}</p>
         </Link>
     );
 };

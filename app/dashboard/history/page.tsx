@@ -15,7 +15,7 @@ import DeleteMenu from "@/components/DeleteMenu";
 
 const HistoryPage = async () => {
     const data = await getAllContentGenerated();
-
+    console.log(data);
     return (
         <main className="mt-24">
             <div className="flex items-center justify-between font-semibold">

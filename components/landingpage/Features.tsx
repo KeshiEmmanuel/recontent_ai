@@ -1,5 +1,8 @@
+"use client";
 import React from "react";
 import FeaturesCard from "./FeaturesCard";
+
+import { motion } from "motion/react";
 import { BiSolidZap } from "react-icons/bi";
 import { FaBrain, FaTwitter, FaLinkedin, FaFacebook } from "react-icons/fa";
 import { TiSocialInstagram } from "react-icons/ti";
@@ -56,7 +59,7 @@ const Features = () => {
     ];
 
     return (
-        <section className="py-20 max-w-[1200px] mx-auto">
+        <section id="features" className="py-20 max-w-[1200px] mx-auto">
             <p className="text-center text-xs bg-purple-100 px-6 py-2 rounded-xl text-purple-500 w-fit h-fit mx-auto">
                 Features
             </p>
@@ -69,7 +72,12 @@ const Features = () => {
                 Platform-specific intelligence that understands what works on
                 each channel. No guesswork, just results.
             </p>
-            <div className="py-12 feature_grid gap-2">
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                transition={{ staggerChildren: 0.5 }}
+                className="py-12 feature_grid gap-2"
+            >
                 {features.map((feature, i) => (
                     <FeaturesCard
                         key={feature.title}
@@ -79,7 +87,7 @@ const Features = () => {
                         index={i}
                     />
                 ))}
-            </div>
+            </motion.div>
         </section>
     );
 };

@@ -5,8 +5,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 const links = [
     { href: "#features", label: "Features" },
-    { href: "/dashboard/templates", label: "Pricing" },
-    { href: "#demo", label: "Demo" },
+    { href: "#pricing", label: "Pricing" },
     { href: "#faq", label: "FAQ" },
 ];
 
