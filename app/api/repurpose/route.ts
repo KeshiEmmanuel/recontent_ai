@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
         const finalResults: Record<string, any> = {};
         const errors: Record<string, string> = {};
 
-        results.forEach((result, index) => {
+        results.forEach((result: any, index) => {
             const platform = platforms[index];
             // console.log(
             //     `📋 Processing structured ${platform} result:`,

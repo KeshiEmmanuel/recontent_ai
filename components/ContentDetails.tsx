@@ -1,8 +1,20 @@
 "use client";
 import React, { useState } from "react";
 import { Copy, Check, ChevronDown, ChevronRight } from "lucide-react";
+interface Tweet {
+    content: string;
+    isFirstTweet: boolean;
+    threadNumber: number;
+    totalThreads: number;
+}
 
-const ContentDetailsPage = ({ contentData }) => {
+// Twitter threads section
+interface TwitterThreads {
+    threadTopic: string;
+    totalTweets: number;
+    tweets: Tweet[];
+}
+const ContentDetailsPage = ({ contentData }: { contentData: any }) => {
     const [copiedId, setCopiedId] = useState(null);
     const [expandedSections, setExpandedSections] = useState({
         linkedin: true,
@@ -13,17 +25,17 @@ const ContentDetailsPage = ({ contentData }) => {
         email: false,
     });
 
-    const copyToClipboard = (text, id) => {
+    const copyToClipboard = (text: string, id: any) => {
         navigator.clipboard.writeText(text);
         setCopiedId(id);
         setTimeout(() => setCopiedId(null), 2000);
     };
 
-    const toggleSection = (section) => {
+    const toggleSection = (section: keyof typeof expandedSections) => {
         setExpandedSections((prev) => ({ ...prev, [section]: !prev[section] }));
     };
 
-    const CopyButton = ({ text, id }) => (
+    const CopyButton = ({ text, id }: { text: string; id: any }) => (
         <button
             onClick={() => copyToClipboard(text, id)}
             className="p-2 hover:bg-gray-100 rounded transition-colors"
@@ -37,7 +49,15 @@ const ContentDetailsPage = ({ contentData }) => {
         </button>
     );
 
-    const Section = ({ title, children, sectionKey }) => (
+    const Section = ({
+        title,
+        children,
+        sectionKey,
+    }: {
+        title: string;
+        children: any;
+        sectionKey: keyof typeof expandedSections;
+    }) => (
         <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
             <button
                 onClick={() => toggleSection(sectionKey)}
@@ -95,9 +115,9 @@ const ContentDetailsPage = ({ contentData }) => {
                                 </h3>
                                 <ul className="space-y-2">
                                     {contentData.linkedin_content.keyInsights.map(
-                                        (insight, idx) => (
+                                        (insight: string) => (
                                             <li
-                                                key={idx}
+                                                key={insight}
                                                 className="text-gray-700 text-sm flex items-start"
                                             >
                                                 <span className="text-gray-400 mr-2">
@@ -115,12 +135,12 @@ const ContentDetailsPage = ({ contentData }) => {
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
                                     {contentData.linkedin_content.hashtags.map(
-                                        (tag, idx) => (
+                                        (tag: string, idx: number) => (
                                             <span
                                                 key={idx}
                                                 className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-sm"
                                             >
-                                                #{tag}
+                                                {tag}
                                             </span>
                                         )
                                     )}
@@ -162,7 +182,7 @@ const ContentDetailsPage = ({ contentData }) => {
                                 </h3>
                                 <div className="flex gap-3 text-2xl">
                                     {contentData.instagram_captions.emojis.map(
-                                        (emoji, idx) => (
+                                        (emoji: string, idx: number) => (
                                             <span key={idx}>{emoji}</span>
                                         )
                                     )}
@@ -174,12 +194,12 @@ const ContentDetailsPage = ({ contentData }) => {
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
                                     {contentData.instagram_captions.hashtags.map(
-                                        (tag, idx) => (
+                                        (tag: string, idx: number) => (
                                             <span
                                                 key={idx}
                                                 className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-sm"
                                             >
-                                                #{tag}
+                                                {tag}
                                             </span>
                                         )
                                     )}
@@ -223,7 +243,7 @@ const ContentDetailsPage = ({ contentData }) => {
                                 </h3>
                                 <ul className="space-y-2">
                                     {contentData.facebook_content.engagementQuestions.map(
-                                        (question, idx) => (
+                                        (question: string, idx: number) => (
                                             <li
                                                 key={idx}
                                                 className="text-gray-700 text-sm flex items-start"
@@ -243,12 +263,12 @@ const ContentDetailsPage = ({ contentData }) => {
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
                                     {contentData.facebook_content.hashtags.map(
-                                        (tag, idx) => (
+                                        (tag: string, idx: number) => (
                                             <span
                                                 key={idx}
                                                 className="bg-gray-100 text-gray-700 px-3 py-1 rounded text-sm"
                                             >
-                                                #{tag}
+                                                {tag}
                                             </span>
                                         )
                                     )}
@@ -279,7 +299,7 @@ const ContentDetailsPage = ({ contentData }) => {
                             </div>
                             <div className="space-y-3">
                                 {contentData.twitter_threads.tweets.map(
-                                    (tweet, idx) => (
+                                    (tweet: Tweet, idx: number) => (
                                         <div
                                             key={idx}
                                             className="bg-gray-50 p-4 rounded border border-gray-100"
@@ -315,9 +335,12 @@ const ContentDetailsPage = ({ contentData }) => {
                                     >
                                         <div className="flex items-start justify-between">
                                             <p className="text-gray-700 italic flex-1 text-sm leading-relaxed">
-                                                {quote}
+                                                {String(quote)}
                                             </p>
-                                            <CopyButton text={quote} id={key} />
+                                            <CopyButton
+                                                text={quote as string}
+                                                id={key}
+                                            />
                                         </div>
                                     </div>
                                 )

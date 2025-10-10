@@ -31,7 +31,7 @@ export const useContentRepurpose = () => {
             } else {
                 throw new Error(data.error || "Failed to generate content");
             }
-        } catch (err) {
+        } catch (err: any) {
             setError(err.message);
             // console.error("Content repurposing error:", err);
             throw err; // Re-throw to handle in the component

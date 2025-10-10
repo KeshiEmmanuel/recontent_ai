@@ -13,19 +13,33 @@ export function cn(...inputs: ClassValue[]) {
     return twMerge(clsx(inputs));
 }
 
-export const getTemperatureForPlatform = (platform: any) => {
-    const temperatures = {
+type TemperaturePlatform =
+    | "twitter"
+    | "linkedin"
+    | "instagram"
+    | "email"
+    | "quotes";
+type MaxTokensPlatform =
+    | "facebook"
+    | "twitter"
+    | "linkedin"
+    | "instagram"
+    | "email"
+    | "quotes";
+
+export const getTemperatureForPlatform = (platform: string) => {
+    const temperatures: Record<TemperaturePlatform, number> = {
         twitter: 0.8, // Creative but focused
         linkedin: 0.7, // Professional but engaging
         instagram: 0.9, // Most creative
         email: 0.6, // Direct and clear
         quotes: 0.5, // Precise extraction
     };
-    return temperatures[platform] || 0.7;
+    return temperatures[platform as TemperaturePlatform] || 0.7;
 };
 
-export const getMaxTokensForPlatform = (platform: any) => {
-    const maxTokens = {
+export const getMaxTokensForPlatform = (platform: string) => {
+    const maxTokens: Record<MaxTokensPlatform, number> = {
         facebook: 1200,
         twitter: 1500, // Thread format needs more tokens
         linkedin: 1000, // Single post
@@ -33,7 +47,7 @@ export const getMaxTokensForPlatform = (platform: any) => {
         email: 1000, // Just subject lines
         quotes: 500, // 3 short quotes
     };
-    return maxTokens[platform] || 1000;
+    return maxTokens[platform as MaxTokensPlatform] || 1000;
 };
 
 export const getStructuredFallbackContent = (
@@ -125,11 +139,10 @@ export const getStructuredFallbackContent = (
 };
 
 // Supabase returns dates in ISO format like: "2025-09-29T19:35:35.757211+00:00"
-
 export function getTimeAgo(supabaseDate: string) {
     const date = new Date(supabaseDate);
-    const now = new Date();   
-    const seconds = Math.floor((now - date) / 1000);
+    const now = new Date();
+    const seconds = Math.floor((now.getTime() - date.getTime()) / 1000);
 
     const intervals = [
         { label: "year", seconds: 31536000 },

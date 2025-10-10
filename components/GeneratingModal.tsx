@@ -10,7 +10,7 @@ const LoadingModal = ({
     onClose: (bool: boolean) => void;
 }) => {
     const [currentStep, setCurrentStep] = useState(0);
-    const [completedSteps, setCompletedSteps] = useState([]);
+    const [completedSteps, setCompletedSteps] = useState<number[]>([]);
     const [currentTip, setCurrentTip] = useState(0);
 
     const steps = [
@@ -68,8 +68,8 @@ const LoadingModal = ({
             return;
         }
 
-        let stepTimer: number;
-        let tipTimer: number;
+        let stepTimer: NodeJS.Timeout;
+        let tipTimer: NodeJS.Timeout;
 
         const processSteps = () => {
             if (currentStep < steps.length) {
@@ -106,7 +106,7 @@ const LoadingModal = ({
                 {/* Header */}
                 <div className="p-8 relative border-b border-gray-100">
                     <button
-                        onClick={onClose}
+                        onClick={() => onClose(false)}
                         className="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors"
                     >
                         <X className="w-5 h-5" />
@@ -206,7 +206,7 @@ const LoadingModal = ({
                 {isComplete && (
                     <div className="px-8 py-8 border-t border-gray-100 mt-6 text-center">
                         <button
-                            onClick={onClose}
+                            onClick={() => onClose(false)}
                             className="w-full bg-gray-900 text-white text-sm font-medium py-3 px-6 rounded-lg hover:bg-gray-800 transition-colors"
                         >
                             View Content Pack
